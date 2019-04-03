@@ -151,6 +151,7 @@ $(function(){
 
 		step(1);
 		document.getElementById("panel").style.display = "inline";
+		document.getElementById("mydiv").style.display = "inline";
 
 	});
 	
@@ -162,6 +163,7 @@ $(function(){
 
 		step(5);
 		document.getElementById("panel").style.display = "none";
+		document.getElementById("mydiv").style.display = "none";
 	});
 
 
@@ -180,6 +182,7 @@ $(function(){
 		// a css transition on the element. i-1 because we want the
 		// steps to start from 1:
 		document.getElementById("panel").style.display = "none";
+		document.getElementById("mydiv").style.display = "none";
 		stage.css('top',(-(i-1)*100)+'%');
 	}
 
