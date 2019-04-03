@@ -2,7 +2,8 @@ $(function(){
 
 	var body = $('body'),
 		stage = $('#stage'),
-		back = $('a.back');
+		back = $('a.back'),
+		map = $('a.map');
 
 	/* Step 1 */
 
@@ -149,6 +150,18 @@ $(function(){
 		});
 
 		step(1);
+		document.getElementById("panel").style.display = "inline";
+
+	});
+	
+		map.click(function(){
+
+	
+
+		
+
+		step(5);
+		document.getElementById("panel").style.display = "none";
 	});
 
 
