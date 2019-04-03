@@ -13,15 +13,6 @@
     </head>
     <body>
 
-	<!-- Draggable DIV -->
-<div id="mydiv">
-  <!-- Include a header DIV with the same name as the draggable DIV, followed by "header" -->
-  <div id="mydivheader">Current MEQUAVIS Address:</div>
-  <p>1@2.1.1.1.1.1.1:</p>
-  <p>Layer 1</p>
-  <p>Omniverse 1/1</p>
-
-</div>
 		<a class="back"></a>
 	    
 	  	<div id="panel">
@@ -92,8 +83,23 @@
 								</table>
 								<br /><br /><br />
 								<img align="right" id="spin_button" src="assets/img/spin_off.png" alt="Spin" onClick="stopSpin();" />
-								
-							</div>
+							<div id="mydiv" style="marginTop :111">
+  <!-- Include a header DIV with the same name as the draggable DIV, followed by "header" -->
+  <div id="mydivheader">Current MEQUAVIS Address:</div>
+  <p>1@2.1.1.1.1.1.1:</p>
+  <p>Layer 1</p>
+  <p>Omniverse 1/1</p>
+
+</div>
+<script>
+
+var mytop=0;
+var element = document.getElementById('mydiv');
+
+    element.style.marginTop = 111;
+mytop=element.style.top;
+element.style.top=mytop;
+</script>
 							</td>
 							<td width="438"  class="the_wheel" align="center" valign="center">
                        
