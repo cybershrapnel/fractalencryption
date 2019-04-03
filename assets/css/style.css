@@ -129,7 +129,7 @@ a.map{
 	cursor: pointer;
 	top: 70px;
 	left: 50%;
-	z-index: 1;
+	z-index: 3;
 	opacity: 0.8;
 	margin-left: -136px;
 	display:inline;
