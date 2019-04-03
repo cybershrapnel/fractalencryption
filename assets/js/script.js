@@ -179,7 +179,7 @@ $(function(){
 		// Move the #stage div. Changing the top property will trigger
 		// a css transition on the element. i-1 because we want the
 		// steps to start from 1:
-
+		document.getElementById("panel").style.display = "none";
 		stage.css('top',(-(i-1)*100)+'%');
 	}
 
