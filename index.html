@@ -1,0 +1,596 @@
+
+<html>
+    <head>
+        <title>MEQUAVIS Multiverse Control Panel</title>
+        <link rel="stylesheet" href="assets/css/main.css" type="text/css" />
+			<link href="http://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" />
+		<link href="assets/css/style.css" rel="stylesheet" />
+        <script type="text/javascript" src="assets/js/Winwheel.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+		<script src="assets/js/aes.js"></script>
+    </head>
+    <body>
+
+	
+		<a class="back"></a>
+
+		<div id="stage">
+
+			<div id="step1">
+				<div class="content">
+				
+	
+	
+	
+
+					<canvas id="c" width="100" height="100" 
+					style="position: fixed; left: 0; top: 0; z-index: 0;"></canvas>
+   
+   
+					<div align="center">
+           
+
+			
+   
+   
+						<table  bgcolor="transparent" style="position: relative; z-index: 2;" cellpadding="0" cellspacing="0" border="0">
+							<tr><td colspan=2> <center><font color="magenta"> <h1>MEQUAVIS Fractal Encryption</h1>
+							<p>
+							Here is one of 5 multiverse timelines available in the current Omniverse.<br />Select a different timeline from the dropdown.
+							</p>
+            
+							<br />
+							<p>Choose a speed and press lock on the simulation you want to select.<br />You can also key in a encryption cipher using the middle 7 simulations..</p>
+							<br />
+			
+							Selected Multiverse <select name="example">
+							<option value="A">Alpha</option>
+							<option value="B">Beta</option>
+							<option value="O" selected="selected">Omega</option>											
+							<option value="D">Delta</option>
+							<option value="G">Gamma</option>
+							</select><br /><br /></font></center></td></tr>
+							<tr>
+							<td>
+							<div class="power_controls">
+								<br />
+								<br />
+								<a class="button encrypt green">Encrypt a file</a>
+
+      
+							<br /><br />
+							<a class="button decrypt magenta">Decrypt a file</a>
+							
+								<table align="left" class="power" cellpadding="10" cellspacing="0">
+									<tr>
+                                    <th align="center">Speed</th>
+									</tr>
+									<tr>
+                                    <td width="78" align="center" id="pw3" onClick="powerSelected(3);">High</td>
+									</tr>
+									<tr>
+                                    <td align="center" id="pw2" onClick="powerSelected(2);">Med</td>
+									</tr>
+									<tr>
+                                    <td align="center" id="pw1" onClick="powerSelected(1);">Low</td>
+									</tr>
+								</table>
+								<br /><br /><br />
+								<img align="right" id="spin_button" src="assets/img/spin_off.png" alt="Spin" onClick="stopSpin();" />
+								
+							</div>
+							</td>
+							<td width="438"  class="the_wheel" align="center" valign="center">
+                       
+							<canvas id="canvas" width="434" height="500" style="position: relative; z-index: 1;">
+                            <p style="{color: white}" align="center">Sorry, your browser doesn't support canvas. Please try another.</p>
+							</canvas>
+						
+							</td>
+							</tr>
+							<tr><td  valign="center">
+				
+							
+				
+							</td></tr>
+			
+						</table><br /><br /><br />
+						<table bgcolor="transparent" style="position: relative; z-index: 2;">
+						<tr><td><table width=100%><tr><td align="left"><font color="red">Downlink 1</font></td><td align="middle"><font color="red">Uplink (Layer UP)</font></td><td align="right"><font color="red">Downlink 2</font></td></tr></table>
+						</td></tr>
+							<tr><td bgcolor="white"><center>Select Encryption Chevrons (optional)<br />
+							Origin:<input size="10" value="0" type="text" onclick="highlightyellow(this)">
+							Destination:<input size="1" value="13" readonly type="text" onclick="highlightyellow(this)">
+							<input size="1" value="14" readonly type="text" onclick="highlightyellow(this)">
+							<input size="1" value="15" readonly type="text" onclick="highlightyellow(this)">
+							<input size="1" value="16" readonly type="text" onclick="highlightyellow(this)">
+							<input size="1" value="17" readonly type="text" onclick="highlightyellow(this)">
+							<input size="1" value="18" readonly type="text" onclick="highlightyellow(this)">
+							<input size="1" value="19" readonly type="text" onclick="highlightyellow(this)">
+							<br />
+							<a target=#new href="http://avisc.nanocheeze.com:42315">Click Here</a> to find an Origin Star Location. Red background indicates activated chevron.
+							</center>
+							</td></tr>
+						</table>
+			
+					</div>
+		
+		
+		
+		
+				</div>
+			</div>
+
+			<div id="step2">
+
+				<div class="content if-encrypt">
+					<h1>Choose which file to encrypt</h1>
+					<h2>An encrypted copy of the file will be generated. No data is sent to our server.</h2>
+					<a class="button browse blue">Browse</a>
+
+					<input type="file" id="encrypt-input" />
+				</div>
+
+				<div class="content if-decrypt">
+					<h1>Choose which file to decrypt</h1>
+					<h2>Only files encrypted by this tool are accepted.</h2>
+					<a class="button browse blue">Browse</a>
+
+					<input type="file" id="decrypt-input" />
+				</div>
+
+			</div>
+
+			<div id="step3">
+
+				<div class="content if-encrypt">
+				<img src="assets/img/ncz.png">
+					<h1>Enter a pass phrase</h1>
+					<h2>This phrase will be used as an encryption key. Write it down or remember it; you won't be able to restore the file without it. </h2>
+
+					<input type="password" />
+					<a class="button process red">Encrypt!</a>
+				</div>
+
+				<div class="content if-decrypt">
+				<img src="assets/img/ncz.png">
+					<h1>Enter the pass phrase</h1>
+					<h2>Enter the pass phrase that was used to encrypt this file. It is not possible to decrypt it without it.</h2>
+
+					<input type="password" />
+					<a class="button process red">Decrypt!</a>
+				</div>
+
+			</div>
+
+			<div id="step4">
+
+				<div class="content">
+				<img src="assets/img/download.png">
+					<h1>Your file is ready!</h1>
+					<a class="button download green">Download</a>
+				</div>
+
+			</div>
+		</div>
+		
+		
+		
+		<script>
+		var c = document.getElementById("c");
+		var ctx = c.getContext("2d");
+
+
+
+		//making the canvas full screen
+		c.height = window.innerHeight;
+		c.width = window.innerWidth;
+		
+//chinese characters - taken from the unicode charset
+var chinese = "田由甲申甴电甶男甸甹町画甼甽甾甿畀畁畂畃畄畅畆畇畈畉畊畋界畍畎畏畐畑";
+//converting the string into an array of single characters
+chinese = chinese.split("");
+
+var font_size = 10;
+var columns = c.width/font_size; //number of columns for the rain
+//an array of drops - one per column
+var drops = [];
+//x below is the x coordinate
+//1 = y co-ordinate of the drop(same for every drop initially)
+for(var x = 0; x < columns; x++)
+	drops[x] = 1; 
+
+//drawing the characters
+function draw()
+{
+	//Black BG for the canvas
+	//translucent BG to show trail
+	ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+	ctx.fillRect(0, 0, c.width, c.height);
+	
+	ctx.fillStyle = "#0F0"; //green text
+	ctx.font = font_size + "px arial";
+	//looping over drops
+	for(var i = 0; i < drops.length; i++)
+	{
+		//a random chinese character to print
+		var text = chinese[Math.floor(Math.random()*chinese.length)];
+		//x = i*font_size, y = value of drops[i]*font_size
+		ctx.fillText(text, i*font_size, drops[i]*font_size);
+		
+		//sending the drop back to the top randomly after it has crossed the screen
+		//adding a randomness to the reset to make the drops scattered on the Y axis
+		if(drops[i]*font_size > c.height && Math.random() > 0.975)
+			drops[i] = 0;
+		
+		//incrementing Y coordinate
+		drops[i]++;
+	}
+}
+
+setInterval(draw, 33);
+	//document.body.style.background = 'url(' + c.toDataURL() + ')';	
+		</script>
+		
+		
+		<script>
+
+		var var13='no';
+		var var14='#4B898F';
+		var var15='#B1EFF5';
+		 var var16='#4B898F';
+		 var var17='#B1EFF5';
+		 var var18='#4B898F';
+		 var var19='#B1EFF5';
+		
+		
+function highlightyellow(x)
+{
+	if (x.style.background=="red"){
+		x.style.background="white";
+
+		if(x.value=='14'){
+			var14='#4B898F';
+		}
+		else if(x.value=='15'){
+			var15='#B1EFF5';
+		}
+		else if(x.value=='16'){
+			var16='#4B898F';
+		}
+		else if(x.value=='17'){
+			var17='#B1EFF5';
+		}
+		else if(x.value=='18'){
+			var18='#4B898F';
+		}
+		else if(x.value=='19'){
+			var19='#B1EFF5';
+		}
+		else if(x.value=='13'){
+		//thirteenWheel.draw();
+		var13='no';
+		}
+
+		innerWheel = new Winwheel({
+                'numSegments' : 6,
+                'outerRadius' : 110,        // Set the outer radius to make the wheel smaller than the outer wheel.
+				 'innerRadius' : 45,  
+                'segments': [				
+                    {'fillStyle' : var14, 'text' : '14'},
+                    {'fillStyle' : var15, 'text' : '15'},
+                    {'fillStyle' : var16, 'text' : '16'},
+					{'fillStyle' : var17, 'text' : '17'},
+					{'fillStyle' : var18, 'text' : '18'},
+                    {'fillStyle' : var19, 'text' : '19'}
+                ],
+                'pins' :
+                {
+                    'number' : 6   // Number of pins. They space evenly around the wheel.
+                }
+            });
+			outerWheel.rotationAngle=innerWheel.rotationAngle;
+			
+			if(var13=='yes')
+			thirteenWheel.draw(false);
+			outerWheel.draw(false);
+		
+		
+}
+	else{
+x.style.background="red";
+//innerWheel.segments[1].style.fillStyle('#B1EFF5');
+
+	if(x.value=='14'){
+			var14='#FF0000';
+		}
+		else if(x.value=='15'){
+			var15='#FF0000';
+		}
+		else if(x.value=='16'){
+			var16='#FF0000';
+		}
+		else if(x.value=='17'){
+			var17='#FF0000';
+		}
+		else if(x.value=='18'){
+			var18='#FF0000';
+		}
+		else if(x.value=='19'){
+			var19='#FF0000';
+		}
+		else if(x.value=='13'){
+		//thirteenWheel.draw();
+		var13='yes';
+		}
+
+ innerWheel = new Winwheel({
+                'numSegments' : 6,
+                'outerRadius' : 110,        // Set the outer radius to make the wheel smaller than the outer wheel.
+				 'innerRadius' : 45,  
+                'segments': [				
+                    {'fillStyle' : var14, 'text' : '14'},
+                    {'fillStyle' : var15, 'text' : '15'},
+                    {'fillStyle' : var16, 'text' : '16'},
+					{'fillStyle' : var17, 'text' : '17'},
+					{'fillStyle' : var18, 'text' : '18'},
+                    {'fillStyle' : var19, 'text' : '19'}
+                ],
+                'pins' :
+                {
+                    'number' : 6   // Number of pins. They space evenly around the wheel.
+                }
+            });
+			outerWheel.rotationAngle=innerWheel.rotationAngle;
+			
+			if(var13=='yes')
+			thirteenWheel.draw(false);
+			outerWheel.draw(false);
+}
+}
+
+</script>
+        <script>
+		
+		 let thirteenWheel = new Winwheel({
+                'numSegments' : 1,
+                'outerRadius' : 45,        // Set the outer radius to make the wheel smaller than the outer wheel.
+                'segments': [
+                   
+                    {'fillStyle' : '#e7706f', 'text' : '13'}
+                ]
+            });
+		
+		
+            // Need to create the SECONDARY wheel first because on construct the variable which keeps track of the wheel to animate will
+            // be set to the last created wheel, and we want the outer one the primary with the animation etc.
+            let innerWheel = new Winwheel({
+                'numSegments' : 6,
+                'outerRadius' : 110,        // Set the outer radius to make the wheel smaller than the outer wheel.
+				 'innerRadius' : 45,  
+                'segments': [
+                    {'fillStyle' : '#4B898F', 'text' : '14'},
+                    {'fillStyle' : '#B1EFF5', 'text' : '15'},
+                    {'fillStyle' : '#4B898F', 'text' : '16'},
+					{'fillStyle' : '#B1EFF5', 'text' : '17'},
+					{'fillStyle' : '#4B898F', 'text' : '18'},
+                    {'fillStyle' : '#B1EFF5', 'text' : '19'}
+                ],
+                'pins' :
+                {
+                    'number' : 6   // Number of pins. They space evenly around the wheel.
+                }
+            });
+
+            // Define the outer wheel, we will treat this as the PRIMARY which means it clears the canvas when drawing and also
+            // gets the animaton applied to it. We must callback a function during the animation to move and draw the inner wheel
+            // so the 2 wheels appear as one thing on the canvas.
+            let outerWheel = new Winwheel({
+                'numSegments': 12,
+                'textMargin' : 0,
+                'outerRadius' : 210,
+                'innerRadius' : 110,    // Set inner radius to the size of the inner wheel since the inner part of the wheel
+                'segments': [           //   is being drawn by the inner wheel we don't need to draw there.
+                    {'fillStyle' : '#FF0000', 'text' : '           1'},
+                    {'fillStyle' : '#FF0000', 'text' : '           12'},
+                    {'fillStyle' : '#FFFF00', 'text' : '           2'},
+                    {'fillStyle' : '#FFFF00', 'text' : '           11'},
+                    {'fillStyle' : '#00FFFF', 'text' : '           3'},
+                    {'fillStyle' : '#00FFFF', 'text' : '           10'},
+                    {'fillStyle' : '#FF00FF', 'text' : '           4'},
+					{'fillStyle' : '#FF00FF', 'text' : '           9'},
+					{'fillStyle' : '#00FF00', 'text' : '           5'},
+					{'fillStyle' : '#00FF00', 'text' : '           8'},
+					{'fillStyle' : '#0000FF', 'text' : '           6'},
+                    {'fillStyle' : '#0000FF', 'text' : '           7'}
+                ],
+                'animation':
+                {
+                  'type': 'spinToStop',                     // Define animation more or less as normal, except for the callbackAfter().
+                  'duration': 5,
+                  'spins': 5,
+                  'easing': 'Power3.easeOut',
+                  'callbackAfter' : drawInnerWheel,     // Call back after each frame of the animation a function we can draw the inner wheel from.
+                  'callbackFinished': alertPrize
+                }
+            ,
+                'pins' :
+                {
+                    'number' : 12   // Number of pins. They space evenly around the wheel.
+                }
+            });
+
+            // Call draw on the outerWheel then the inner wheel to ensure that both are rendered on the canvas.
+			//thirteenWheel.draw(false);
+            outerWheel.draw(false);
+			
+            innerWheel.draw(false);   // Pass false to stop it clearing the canvas and wiping the outer wheel.
+
+            // This function is called after the outer wheel has drawn during the animation.
+            function drawInnerWheel()
+            {
+                // Update the rotationAngle of the innnerWheel to match that of the outer wheel - this is a big part of what
+                // links them to appear as one 2-part wheel. Call the draw function passing false so the outer wheel is not wiped.
+                innerWheel.rotationAngle = outerWheel.rotationAngle;
+                innerWheel.draw(false);
+				if (var13=='yes')
+				thirteenWheel.draw(false);
+            }
+
+            // Called when the animation has finished.
+            function alertPrize()
+            {
+                // The the indicated segments from the 2 wheels.
+                let winningInnerSegment = innerWheel.getIndicatedSegment();
+                let winningOuterSegment = outerWheel.getIndicatedSegment();
+
+                // Alert the combination of prizes won.
+                alert('You won ' + winningInnerSegment.text + ', ' + winningOuterSegment.text);
+
+                // Set things so power and spin button can be clicked again.
+                wheelSpinning = false;
+
+                // Remove all colours from the power level indicators.
+                document.getElementById('pw1').className = "";
+                document.getElementById('pw2').className = "";
+                document.getElementById('pw3').className = "";
+            }
+
+
+            // ================================================================================================================
+            // FUNCTIONS FOR power controls below (All this is not necessary to actually create and spin a wheel)....
+            // Vars used by the code in this page to do power controls.
+            let wheelPower    = 1;
+            let wheelSpinning = false;
+			let wheelpause =false;
+			document.getElementById('pw1').className = "pw1";
+			let thepower=1;
+
+            // -------------------------------------------------------
+            // Function to handle the onClick on the power buttons.
+            // -------------------------------------------------------
+            function powerSelected(powerLevel)
+            {
+                // Ensure that power can't be changed while wheel is spinning.
+                if ((wheelSpinning == false) || (wheelSpinning == true)) {
+                    // Reset all to grey incase this is not the first time the user has selected the power.
+                    document.getElementById('pw1').className = "";
+                    document.getElementById('pw2').className = "";
+                    document.getElementById('pw3').className = "";
+					thepower=powerLevel;
+                    // Now light up all cells below-and-including the one selected by changing the class.
+                    if (powerLevel >= 1) {
+                        document.getElementById('pw1').className = "pw1";
+                    }
+
+                    if (powerLevel >= 2) {
+                        document.getElementById('pw2').className = "pw2";
+                    }
+
+                    if (powerLevel >= 3) {
+                        document.getElementById('pw3').className = "pw3";
+                    }
+
+                    // Set wheelPower var used when spin button is clicked.
+                    wheelPower = powerLevel;
+
+                   
+					
+					stopSpin();
+					startSpin();
+					
+					 // Light up the spin button by changing it's source image and adding a clickable class to it.
+                    document.getElementById('spin_button').src = "assets/img/spin_stop.png";
+                    document.getElementById('spin_button').className = "clickable";
+                }
+            }
+
+            // -------------------------------------------------------
+            // Click handler for spin button.
+            // -------------------------------------------------------
+            function startSpin()
+            {
+                // Ensure that spinning can't be clicked again while already running.
+                if (wheelSpinning == false) {
+                    // Reset things with inner and outer wheel so spinning will work as expected. Without the reset the
+                    // wheel will probably just move a small amount since the rotationAngle would be close to the targetAngle
+                    // figured out by the animation.
+                    outerWheel.stopAnimation(false);  // Stop the animation, false as param so does not call callback function.
+                    //outerWheel.rotationAngle = 0;     // Re-set the wheel angle to 0 degrees.
+                    outerWheel.draw();                // Call draw to render changes to the wheel.
+                    //innerWheel.rotationAngle = 0;
+                    innerWheel.draw(false);
+
+                    // Based on the power level selected adjust the number of spins for the wheel, the more times is has
+                    // to rotate with the duration of the animation the quicker the wheel spins.
+                    if (wheelPower == 1) {
+                        outerWheel.animation.spins = 30;     // Number of spins and/or duration can be altered to make the wheel
+                        outerWheel.animation.duration = 5000;  // appear to spin faster or slower.
+                    } else if (wheelPower == 2) {
+                        outerWheel.animation.spins = 100;
+                        outerWheel.animation.duration = 5000;
+                    } else if (wheelPower == 3) {
+                        outerWheel.animation.spins = 300;
+						outerWheel.animation.duration = 5000;
+                    }
+					                    if (thepower >= 1) {
+                        document.getElementById('pw1').className = "pw1";
+                    }
+
+                    if (thepower >= 2) {
+                        document.getElementById('pw2').className = "pw2";
+                    }
+
+                    if (thepower >= 3) {
+                        document.getElementById('pw3').className = "pw3";
+                    }
+					
+
+                    // Disable the spin button so can't click again while wheel is spinning.
+                    document.getElementById('spin_button').src       = "assets/img/spin_stop.png";
+                   // document.getElementById('spin_button').className = "clickable";
+
+                    // Begin the spin animation by calling startAnimation on the wheel object.
+                    outerWheel.startAnimation();
+
+                    // Set to true so that power can't be changed and spin button re-enabled during
+                    // the current animation. The user will have to reset before spinning again.
+                    wheelSpinning = true;
+					wheelpause=false;
+                }
+            }
+			
+			function stopSpin()
+            {
+			
+			document.getElementById('pw1').className = "";
+                    document.getElementById('pw2').className = "";
+                    document.getElementById('pw3').className = "";
+			if (wheelpause == false){
+			
+			wheelSpinning = false;
+			outerWheel.stopAnimation(false);
+			wheelpause=true;
+			document.getElementById('spin_button').src = "assets/img/spin_on.png";
+			document.getElementById('spin_button').className = "clickable";
+			
+			}
+			else{
+			wheelSpinning = false;
+			wheelpause=false;
+			startSpin();
+			//document.getElementById('spin_button').src = "assets/img/spin_on.png";
+			document.getElementById('spin_button').className = "clickable";
+			
+			}
+			
+			}
+			
+			
+			startSpin(); //start at load
+        </script>
+		
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    </body>
+</html>
